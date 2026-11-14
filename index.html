@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Desk">
+<meta name="robots" content="noindex,nofollow">
+<title>Desk · Nachtsessie</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <header class="top">
+    <div class="kicker">SOLANA MEMECOINS • NIGHT SESSION</div>
+    <span id="badge" class="badge">…</span>
+  </header>
+
+  <section class="balance">
+    <div class="bal-label" id="balLabel">Saldo</div>
+    <div class="bal" id="bal">—</div>
+    <div class="bal-row">
+      <span id="chg" class="chg">—</span>
+      <span id="mult" class="pill-dark">x—</span>
+    </div>
+    <div class="sub" id="nightLine"></div>
+  </section>
+
+  <section class="card glass">
+    <div class="card-h"><span>Equity</span><span class="muted" id="eqNote"></span></div>
+    <div id="chart" class="chart"></div>
+  </section>
+
+  <section class="tick-wrap">
+    <div class="sec-h">Net gescand</div>
+    <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+  </section>
+
+  <section class="card glass">
+    <div class="card-h"><span>Live trades</span><span class="muted" id="tradeNote"></span></div>
+    <div id="trades"></div>
+  </section>
+
+  <section>
+    <div class="sec-h">Rug-check</div>
+    <div class="rug-row" id="rugs"></div>
+  </section>
+
+  <section class="card session" id="session"></section>
+
+  <section class="card glass" id="deposit">
+    <div class="card-h"><span>Storten</span></div>
+    <p class="txt">Stuur SOL vanuit Phantom of een exchange naar dit adres. Dit is de enige manier om de desk geld te geven.</p>
+    <div class="addr" id="addr"></div>
+    <div class="btns">
+      <button id="copy" class="btn">Kopieer adres</button>
+      <a id="solscan" class="btn ghost" target="_blank" rel="noopener">Bekijk op Solscan</a>
+    </div>
+    <div class="sub" id="walletBal"></div>
+  </section>
+
+  <footer class="foot">
+    <div id="updated"></div>
+    <div>Resultaten uit het verleden zijn geen garantie voor de toekomst. Memecoins kunnen in minuten naar nul.</div>
+  </footer>
+</main>
+
+<div id="toasts" class="toasts"></div>
+
+<div id="sheet" class="sheet hidden" role="dialog" aria-modal="true">
+  <div class="sheet-bg" data-close></div>
+  <div class="sheet-card">
+    <div class="grab" data-close></div>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
