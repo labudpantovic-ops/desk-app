@@ -3,71 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Desk">
 <meta name="robots" content="noindex,nofollow">
-<title>Desk · Nachtsessie</title>
+<title>Grok Desk</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon.svg">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-<main id="app">
+<div id="viewport">
+<div id="screens">
+
+<!-- ============ SCREEN 1: DESK ============ -->
+<main class="screen" id="scrDesk" aria-label="Desk">
   <header class="top">
-    <div class="kicker">SOLANA MEMECOINS • NIGHT SESSION</div>
-    <span id="badge" class="badge">…</span>
+    <div class="brand"><span class="logo"></span>grok desk<span class="dim" id="openNote"></span></div>
+    <div class="top-r"><span id="modePill" class="mode">PAPER</span><span id="badge" class="state">…</span></div>
   </header>
 
-  <section class="balance">
-    <div class="bal-label" id="balLabel">Saldo</div>
-    <div class="bal" id="bal">—</div>
+  <section class="hero">
+    <div class="bal-label" id="balLabel">Papiergeld</div>
+    <div class="bal" id="bal"><span class="int">$—</span><span class="dec"></span></div>
     <div class="bal-row">
-      <span id="chg" class="chg">—</span>
-      <span id="mult" class="pill-dark">x—</span>
+      <span id="chg" class="chg flat">—</span>
+      <span id="mult" class="mult">—</span>
     </div>
-    <div class="sub" id="nightLine"></div>
   </section>
 
-  <section class="card glass">
-    <div class="card-h"><span>Equity</span><span class="muted" id="eqNote"></span></div>
-    <div id="chart" class="chart"></div>
-  </section>
-
-  <section class="tick-wrap">
-    <div class="sec-h">Net gescand</div>
-    <div class="ticker"><div class="ticker-track" id="ticker"></div></div>
-  </section>
-
-  <section class="card glass">
-    <div class="card-h"><span>Live trades</span><span class="muted" id="tradeNote"></span></div>
-    <div id="trades"></div>
+  <section class="chart-wrap">
+    <div class="chart" id="chartDesk"></div>
+    <div class="tf" data-chart="desk">
+      <button data-tf="24h" class="on">24u</button><button data-tf="7d">7d</button><button data-tf="30d">30d</button><button data-tf="all">Alles</button>
+    </div>
   </section>
 
   <section>
-    <div class="sec-h">Rug-check</div>
+    <div class="sec-h"><h2>Live scherm</h2><span class="acc" id="liveWho">Scanner</span></div>
+    <div class="live card" id="live"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Bots</h2><span class="acc" id="botsNote"></span></div>
+    <div id="bots" class="bots"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Activiteit</h2><span class="acc" id="actNote"></span></div>
+    <div id="act" class="list"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2>Rug-check</h2><span class="mut" id="rugNote">laatste controles</span></div>
     <div class="rug-row" id="rugs"></div>
   </section>
 
   <section class="card session" id="session"></section>
-
-  <section class="card glass" id="deposit">
-    <div class="card-h"><span>Storten</span></div>
-    <p class="txt">Stuur SOL vanuit Phantom of een exchange naar dit adres. Dit is de enige manier om de desk geld te geven.</p>
-    <div class="addr" id="addr"></div>
-    <div class="btns">
-      <button id="copy" class="btn">Kopieer adres</button>
-      <a id="solscan" class="btn ghost" target="_blank" rel="noopener">Bekijk op Solscan</a>
-    </div>
-    <div class="sub" id="walletBal"></div>
-  </section>
 
   <footer class="foot">
     <div id="updated"></div>
     <div>Resultaten uit het verleden zijn geen garantie voor de toekomst. Memecoins kunnen in minuten naar nul.</div>
   </footer>
 </main>
+
+<!-- ============ SCREEN 2: WALLET ============ -->
+<main class="screen" id="scrWallet" aria-label="Wallet">
+  <div class="banner"></div>
+  <section class="profile">
+    <div class="pf-top">
+      <div class="avatar" id="avatar">GD</div>
+      <div class="pf-btns"><span id="modePill2" class="mode">PAPER</span><span id="badge2" class="state">…</span></div>
+    </div>
+    <div class="pf-name" id="pfName">Grok Desk</div>
+    <div class="pf-handle" id="pfHandle">@thewrldisyours8</div>
+    <div class="pf-bio" id="pfBio">Grok Desk · PAPER</div>
+    <div class="pf-stats">
+      <span><i class="ic ic-clock"></i><b id="stHold">—</b> gem. hold</span>
+      <span><i class="ic ic-swap"></i><b id="stTrades">—</b> trades</span>
+      <span><i class="ic ic-cal"></i><b id="stStart">—</b></span>
+    </div>
+  </section>
+
+  <section class="pbal">
+    <div class="pbal-row">
+      <div>
+        <div class="bal mid" id="bal2"><span class="int">$—</span><span class="dec"></span></div>
+        <div class="chg2"><span id="chg2" class="flat">—</span> <span class="mut" id="chg2tf">24u</span></div>
+      </div>
+      <div class="tf small" data-chart="wallet">
+        <button data-tf="24h" class="on">24u</button><button data-tf="7d">7d</button><button data-tf="30d">30d</button><button data-tf="all">Alles</button>
+      </div>
+    </div>
+    <div class="chart tall" id="chartWallet"></div>
+  </section>
+
+  <section class="cash card">
+    <div class="cash-ic">$</div>
+    <div class="cash-mid"><div class="mut" id="cashLabel">Saldo</div><div class="cash-v" id="cash">—</div></div>
+    <button class="sq" id="btnDeposit" aria-label="Storten">+</button>
+    <button class="sq" id="btnMore" aria-label="Meer">•••</button>
+  </section>
+
+  <section>
+    <div class="sec-h"><h2 id="posTitle">Posities (0)</h2>
+      <div class="seg" id="posSeg"><button data-v="open" class="on">Open<i></i></button><button data-v="closed">Gesloten</button></div>
+    </div>
+    <div class="pills" id="posPills"><button class="on" data-f="all">Alles</button><button data-f="tokens">Tokens</button></div>
+    <div id="positions" class="list"></div>
+  </section>
+
+  <div class="hide-row"><span></span><button id="posToggle">Verberg</button><span></span></div>
+
+  <section id="feedSec">
+    <div class="sec-h"><h2>Feed</h2><button class="lnk" id="feedToggle">Verberg</button></div>
+    <div id="feed" class="list"></div>
+  </section>
+
+
+  <footer class="foot">
+    <div>Resultaten uit het verleden zijn geen garantie voor de toekomst. Memecoins kunnen in minuten naar nul.</div>
+  </footer>
+</main>
+
+</div>
+</div>
+
+<nav class="tabbar" id="tabbar">
+  <button data-tab="0" class="on"><i class="ic ic-home"></i><span>Desk</span></button>
+  <button data-tab="1"><i class="ic ic-wallet"></i><span>Wallet</span></button>
+</nav>
 
 <div id="toasts" class="toasts"></div>
 
@@ -78,6 +146,6 @@
     <div id="sheetBody"></div>
   </div>
 </div>
-<script src="app.js"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
